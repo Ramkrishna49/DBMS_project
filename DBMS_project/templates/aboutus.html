@@ -1,0 +1,210 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Branch</title>
+</head>
+<style>
+  .navbar {
+    background-color: orange;
+    border-radius: 1px;
+    position: relative;
+  }
+
+  .navbar ul {
+    overflow: auto;
+  }
+
+  .navbar li {
+    float: left;
+    list-style: none;
+    margin: 17px;
+  }
+
+  .navbar li a {
+    padding: 3px 3px;
+    text-decoration: none;
+    color: white;
+  }
+
+  .navbar li a:hover {
+    color: red;
+  }
+
+  .search {
+    float: right;
+    color: white;
+    padding: 12px 75px;
+  }
+
+  .navbar input {
+    border: 2px solid black;
+    border-radius: 14px;
+    padding: 3px 17px;
+    width: 129px;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .section-heading {
+    color: rgba(39, 73, 10, 0.9);
+    text-align: center;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .profile {
+    position: relative;
+    transition: all 0.2s;
+  }
+
+  .profile:hover {
+    transform: translateY(25px);
+  }
+
+  .profile img {
+    max-width: 100%;
+    border-radius: 50%;
+    border: 5px solid #f7f7f7;
+    filter: drop-shadow(-20px 0 10px rgba(0, 0, 0, 0.1));
+    cursor: pointer;
+  }
+
+  .profile:not(:first-child) img {
+    margin-left: -20px;
+  }
+
+  .profile .name {
+    position: absolute;
+    background-color: #10996d;
+    color: #fff;
+    font-family: "Bebas Neue", cursive;
+    padding: 15px 30px;
+    border-radius: 100px;
+    bottom: -80px;
+    left: 50%;
+    white-space: nowrap;
+    transform: translate(-50%, -50px);
+    letter-spacing: 1px;
+    font-size: 20px;
+    opacity: 0;
+    transition: all 0.3s;
+  }
+
+  .profile .name::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #10996d;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  .profile img:hover + .name {
+    opacity: 1;
+    transform: translateX(-50%);
+    box-shadow: 0 10px 20px rgba(86, 86, 198, 0.3);
+  }
+
+  body {
+    overflow-y: scroll;
+    background: linear-gradient(90deg, rgba(59,109,172,1) 0%, rgba(145,143,81,0.865909090909091) 100%);
+  }
+
+  .bank-location {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+  }
+
+  .bank-card {
+    text-align: center;
+    max-width: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+  }
+
+  .bank-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+  }
+
+  /* ... rest of your styles ... */
+
+</style>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'empregistration' %}">Employee Registration</a></li>
+                <li><a href="{% url 'emplogin' %}">Employee Login</a></li>
+                <li><a href="{% url 'cusregistration' %}">Customer Registration</a></li>
+                <li><a href="{% url 'cuslogin' %}">Customer Login</a></li>
+                <li><a href="{% url 'adminlogin' %}">Admin Login</a></li>
+                <li><a href="{% url 'about' %}">Branch</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="bank-location">
+      <div class="bank-card">
+          <img src="{% static 'images/bank.png' %}" alt="Bank 1" />
+          <h3>Pokhara Branch</h3>
+          <p>Pokhara-29-Talchowk</p>
+      </div>
+      <div class="bank-card">
+          <img src="{% static 'images/bank.png' %}" alt="Bank 2" />
+          <h3>Katmandu Branch</h3>
+          <p>Kathmandu-20-Newroad</p>
+      </div>
+      <div class="bank-card">
+          <img src="{% static 'images/bank.png' %}" alt="Bank 3" />
+          <h3>Chitwan Branch</h3>
+          <p>Chitwan-8-Annapurna Chowk</p>
+      </div>
+  </div>
+    
+    <section class="team">
+        <h2 class="section-heading"><i>Branch Managers</i></h2>
+        <div class="container">
+            <div class="profile"></div>
+            <div class="profile"></div>
+            <div class="profile"></div>
+            <div class="profile"></div>
+            <div class="profile">
+                <img src="{% static 'images/boy.png' %}" alt="" />
+                <span class="name">Ram Krishna Sharma</span>
+            </div>
+            <div class="profile">
+                <img src="{% static 'images/boy.png' %}" alt="" />
+                <span class="name">Sandesh Bashyal</span>
+            </div> <tb/>
+            <div class="profile">
+                <img src="{% static 'images/g.png' %}" alt="" />
+                <span class="name">Pooja Shah</span>
+            </div>
+        </div>
+    </section>
+    <br/>
+
+    
+</body>
+</html>
