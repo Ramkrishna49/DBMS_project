@@ -9,6 +9,7 @@
         Home
         {% endblock %}
     </title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <style>
 .ag-format-container {
@@ -38,6 +39,20 @@ body {
 }
 .imgr{
   padding-left:20%;
+  
+    bottom: 0;
+    left:0;
+    width: 100%;
+    border-radius: 0 0 20px 20px;
+  
+}
+.be{
+  text-align:left;
+}
+.para{
+  width: 30%;
+  text-align:justify;
+  
 }
 .ag-courses_item {
   -ms-flex-preferred-size: calc(33.33333% - 30px);
@@ -354,6 +369,18 @@ body {
     font-size: 16px;
   }
 }
+.slideshow-wrapper {
+  max-width: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+
+.slideshow-container {
+  position: center;
+  overflow: hidden;
+  padding: 0;
+}
+
 
 
 
@@ -378,10 +405,37 @@ body {
              </div>
  </header>
         <hr>
-        <h1 class="upper"><center>Hamro Bank</center></h1>
-        <hr>
-        <style>
-          body {
+        <h1 class="upper"><center>Hamro Bank</center></h1><hr>
+        
+        
+        
+        
+        <div class="slideshow-wrapper">
+          <!-- Add the previous button -->
+          <button class="slideshow-btn prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+          <!-- Add the slideshow container -->
+          <div class="slideshow-container">
+              <div class="imgr">
+                  <img src="static/images/image1.jpg" alt="Image 1">
+              </div>
+              <div class="imgr">
+                  <img src="static/images/image2.jpg" alt="Image 2">
+              </div>
+              <!-- Add more images here -->
+          </div>
+          <!-- Add the next button -->
+          <button class="slideshow-btn next-btn" onclick="changeSlide(1)">&#10095;</button>
+      </div>
+      <div class="be">
+        <img  src="static/images/bann.jpg" alt="banner">
+      </div>
+     
+  
+
+        
+        
+  <style>
+    body {
             background-image: url('/static/images/background.jpg');
             background-size: cover; /* Adjust to your preference */
             background-repeat: no-repeat; /* Adjust to your preference */
@@ -475,129 +529,7 @@ body {
         </style>
               
 
-<div class="ag-format-container">
-  <div class="ag-courses_box">
-    <div class="ag-courses_item">
-      <a href="#" class="ag-courses-item_link">
-        <div class="ag-courses-item_bg"></div>
 
-        <div class="ag-courses-item_title">
-          Home Loans
-        </div>
-
-        <div class="ag-courses-item_date-box">
-
-        </div>
-      </a>
-    </div>
-
-    <div class="ag-courses_item">
-      <a href="#" class="ag-courses-item_link">
-        <div class="ag-courses-item_bg"></div>
-
-        <div class="ag-courses-item_title">
-          Gold Loans
-        </div>
-
-        <div class="ag-courses-item_date-box">
-
-          <span class="ag-courses-item_date">
-
-          </span>
-        </div>
-      </a>
-    </div>
-
-    <div class="ag-courses_item">
-      <a href="#" class="ag-courses-item_link">
-        <div class="ag-courses-item_bg"></div>
-
-        <div class="ag-courses-item_title">
-         Education Loans
-        </div>
-
-        <div class="ag-courses-item_date-box">
-
-          <span class="ag-courses-item_date">
-
-          </span>
-        </div>
-      </a>
-    </div>
-
-    <div class="ag-courses_item">
-      <a href="#" class="ag-courses-item_link">
-        <div class="ag-courses-item_bg"></div>
-
-        <div class="ag-courses-item_title">
-        Vehicle Loan
-        </div>
-
-        <div class="ag-courses-item_date-box">
-
-          <span class="ag-courses-item_date">
-
-          </span>
-        </div>
-      </a>
-    </div>
-
-    <div class="ag-courses_item">
-      <a href="#" class="ag-courses-item_link">
-        <div class="ag-courses-item_bg"></div>
-
-        <div class="ag-courses-item_title">
-         Personal Loan
-        </div>
-
-        <div class="ag-courses-item_date-box">
-
-          <span class="ag-courses-item_date">
-         
-          </span>
-        </div>
-      </a>
-    </div>
-
-    <div class="ag-courses_item">
-      <a href="#" class="ag-courses-item_link">
-        <div class="ag-courses-item_bg"></div>
-
-        <div class="ag-courses-item_title">
-          Internet Banking
-                  </div>
-      </a>
-    </div>
-
-    <div class="ag-courses_item">
-      <a href="#" class="ag-courses-item_link">
-        <div class="ag-courses-item_bg">
-        </div>
-        <div class="ag-courses-item_title">
-          Mobile Banking
-        </div>
-      </a>
-    </div>
-
-    <div class="ag-courses_item">
-      <a href="#" class="ag-courses-item_link">
-        <div class="ag-courses-item_bg"></div>
-
-        <div class="ag-courses-item_title">
-          Fixed Deposit
-        </div>
-
-        <div class="ag-courses-item_date-box">
-
-          <span class="ag-courses-item_date">
-
-          </span>
-        </div>
-      </a>
-    </div>
-
-  </div>
-</div>
 <script>
   function sendMessage() {
       const inputField = document.getElementById("chatInput");
@@ -619,6 +551,32 @@ body {
           }, 1000);
       }
   }
+  let slideIndex = 0;
+
+  function showSlides() {
+    const slides = document.getElementsByClassName("imgr");
+
+    // Hide all slides
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+
+    // Show the current slide
+    slideIndex++;
+    if (slideIndex > slides.length) {
+      slideIndex = 1;
+    }
+    slides[slideIndex - 1].style.display = "block";
+
+    // Change slide every 3 seconds (adjust the interval as needed)
+    setTimeout(showSlides, 1000);
+  }
+
+  // Start the slideshow when the page loads
+  window.onload = showSlides;
+  
+
+
 </script>
 
   
@@ -687,8 +645,7 @@ body {
       background-color: #0c7d50;
   }
 </style>
-<img class="imgr" src="./static/images/image2.jpg" alt="se">
-<img class="imgr" src="./static/images/image1.jpg" alt="se">
+
 <div class="chatbox">
   <div class="chatlogs" id="chatlogs">
       <!-- Chat messages will appear here -->
@@ -698,6 +655,7 @@ body {
       <button onclick="sendMessage()">Send</button>
   </div>
 </div>
+
 
 </body>
 </html>
